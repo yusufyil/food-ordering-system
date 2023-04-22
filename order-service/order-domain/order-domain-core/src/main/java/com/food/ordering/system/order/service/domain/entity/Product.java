@@ -6,12 +6,17 @@ import com.food.ordering.system.order.service.domain.valueobject.ProductID;
 import lombok.Getter;
 
 @Getter
-public class Product extends BaseEntity<ProductID>{
+public class Product extends BaseEntity<ProductID> {
     private String name;
     private Money price;
 
     public Product(ProductID id, String name, Money price) {
         super.setId(id);
+        this.name = name;
+        this.price = price;
+    }
+
+    public void updateWithConfirmedNameAndPrice(String name, Money price) {
         this.name = name;
         this.price = price;
     }
